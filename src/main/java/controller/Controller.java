@@ -204,6 +204,9 @@ public class Controller {
         return students;
     }
 
+    /**
+     * @return a list of students enrolled to the course identified with courseId
+     */
     public ArrayList<Student> findStudentsByCourseId(int courseId) throws IOException {
         ArrayList<Integer> studentIds = this.erepo.findStudentsByCourseId(courseId);
         ArrayList<Student> students = (ArrayList<Student>) this.srepo.findAll();

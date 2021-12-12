@@ -134,6 +134,9 @@ public class GUIController{
         }
     }
 
+    /**
+     * Button to refresh the students enrolled to a course while the app is running from the teachers menu
+     */
     @FXML
     protected void refresh() throws IOException {
         if(refreshId.getText() != null) {
@@ -145,6 +148,9 @@ public class GUIController{
         }
     }
 
+    /**
+     * Button to clear all text fields in the student menu
+     */
     @FXML
     public void clearStudent(){
         myStudentFirstName.clear();
@@ -153,6 +159,10 @@ public class GUIController{
         totalCredits.clear();
         courseId.clear();
     }
+
+    /**
+     * Button to clear all text fields in the teacher menu
+     */
     @FXML
     public void clearTeacher(){
         myTeacherFirstName.clear();
