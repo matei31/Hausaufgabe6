@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" prefHeight="497.0" prefWidth="626.0" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="gui.GUIController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <Button mnemonicParsing="false" onAction="#onStudentsMenuButtonClick" prefHeight="99.0" prefWidth="164.0" text="Students menu" />
+   <Button mnemonicParsing="false" onAction="#onTeachersMenuButtonClick" prefHeight="99.0" prefWidth="169.0" text="Teachers menu" />
+</VBox>
