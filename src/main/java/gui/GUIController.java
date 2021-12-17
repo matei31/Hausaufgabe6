@@ -1,21 +1,17 @@
 package gui;
 
 import controller.Controller;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
 import model.Student;
+import model.Teacher;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
 import static java.lang.Integer.parseInt;
@@ -55,22 +51,73 @@ public class GUIController{
     private Label studentLabel;
     @FXML
     private ListView<String> myListView = new ListView<>();
+    @FXML
+    private TextField studentLoginId;
+    @FXML
+    private TextField teacherLoginId;
+    @FXML
+    private Label studentNotFound;
+    @FXML
+    private Label teacherNotFound;
 
 
     /**
      * Button to enter the students menu
      */
     @FXML
-    protected void onStudentsMenuButtonClick() throws IOException {
-        GuiApplication.showMenu("StudentsMenu.fxml", "Students menu");
+    protected void onStudentsLoginButtonClick() throws IOException {
+        int studentId;
+        if(!studentLoginId.getText().isEmpty())
+            studentId = parseInt(studentLoginId.getText());
+        else
+            studentId = -1;
+        List<Student> students = controller.findAllStudents();
+        boolean found = false;
+        for (Student s: students)
+        {
+            if(s.getStudentId() == studentId) {
+                found = true;
+                studentNotFound.setText("");
+                GuiApplication.showMenu("StudentsMenu.fxml", "Students menu");
+            }
+        }
+        if (!found || studentLoginId.getText().isEmpty()){
+            studentNotFound.setText("Student does not exist");
+        }
+
     }
 
-    /**
-     * Button to enter the teachers menu
-     */
+    @FXML
+    protected void onTeachersLoginButtonClick() throws IOException {
+        int teacherId;
+        if(!teacherLoginId.getText().isEmpty())
+            teacherId = parseInt(teacherLoginId.getText());
+        else
+            teacherId = -1;
+        List<Teacher> teachers = controller.findAllTeachers();
+        boolean found = false;
+        for (Teacher t: teachers)
+        {
+            if(t.getTeacherId() == teacherId) {
+                found = true;
+                teacherNotFound.setText("");
+                GuiApplication.showMenu("TeachersMenu.fxml", "Teachers menu");
+            }
+        }
+        if (!found || teacherLoginId.getText().isEmpty()){
+            teacherNotFound.setText("Teacher does not exist");
+        }
+
+    }
+
+    @FXML
+    protected void onStudentsMenuButtonClick() throws IOException {
+        GuiApplication.showMenu("StudentsLogin.fxml", "Students login");
+    }
+
     @FXML
     protected void onTeachersMenuButtonClick() throws IOException {
-        GuiApplication.showMenu("TeachersMenu.fxml", "Teachers menu");
+        GuiApplication.showMenu("TeachersLogin.fxml", "Teachers login");
     }
 
     /**

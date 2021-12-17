@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GUIController">
+   <children>
+      <TextField fx:id="studentLoginId" layoutX="196.0" layoutY="187.0" prefHeight="28.0" prefWidth="207.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="221.0" layoutY="135.0" prefHeight="28.0" prefWidth="148.0" text="StudentID" />
+      <Label fx:id="studentNotFound" layoutX="423.0" layoutY="187.0" prefHeight="28.0" prefWidth="149.0" />
+      <Button layoutX="241.0" layoutY="243.0" mnemonicParsing="false" onAction="#onStudentsLoginButtonClick" prefHeight="28.0" prefWidth="108.0" text="Login" />
+   </children>
+</AnchorPane>
